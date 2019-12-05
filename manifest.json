@@ -1,0 +1,37 @@
+{
+	"manifest_version":2,
+	"name": "FRED Cart Grabber",
+	"short_name": "FCG",
+	"description": "This extension will detect open shopping carts on pages and automatically submit your items for bid and price comparison across many resellers",
+	"version" : "1", 
+	"icons": {
+		"16": "icon3.png",
+		"48": "icon3.png",
+		"128": "icon3.png"
+	},
+	"background": {
+		"scripts": [
+			"background.js"
+		],
+		"persistent": false
+	},
+	"content_scripts": [
+		{
+			"matches":["https://www.cdw.com/*","http://www.cdw.com/*"],
+			"js":["payload.js"]
+		}
+	],
+	"browser_action": {
+		"default_icon": "icon3.png",
+		"default_popup": "popup.html",
+		"default_title": "Click me to start the extension"
+	},
+	"permissions": [
+		"activeTab",
+		"background",
+		"downloads",
+		"cookies",
+		"https://ajax.googleapis.com",
+		"http://fredmaster.test"
+	]
+}
